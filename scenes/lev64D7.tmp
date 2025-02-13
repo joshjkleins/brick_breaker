@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://ukl857r0udyj"]
+
+[ext_resource type="PackedScene" uid="uid://doagbb6m12h22" path="res://scenes/paddle.tscn" id="1_ahqwx"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_xppew"]
+[ext_resource type="PackedScene" uid="uid://dac86bwido4da" path="res://scenes/ball.tscn" id="3_ffa2n"]
+[ext_resource type="PackedScene" uid="uid://bjp62onf4i5h2" path="res://scenes/brick.tscn" id="4_6myku"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eshiu"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r5fui"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jfipi"]
+normal = Vector2(1, 0)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_xppew")
+
+[node name="Paddle" parent="." instance=ExtResource("1_ahqwx")]
+texture_filter = 2
+position = Vector2(476, 465)
+
+[node name="Ball" parent="." instance=ExtResource("3_ffa2n")]
+position = Vector2(475, 426)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+process_callback = 0
+
+[node name="Bricks" type="Node2D" parent="."]
+
+[node name="Brick" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(342, 95)
+
+[node name="Brick2" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(443, 95)
+
+[node name="Brick3" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(546, 95)
+
+[node name="Brick4" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(651, 95)
+
+[node name="Brick5" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(342, 115)
+
+[node name="Brick6" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(444, 115)
+
+[node name="Brick7" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(546, 115)
+
+[node name="Brick8" parent="Bricks" instance=ExtResource("4_6myku")]
+position = Vector2(651, 115)
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="Right" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(959, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right"]
+position = Vector2(0, 387)
+shape = SubResource("WorldBoundaryShape2D_eshiu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries/Right"]
+position = Vector2(-283, -153)
+shape = SubResource("WorldBoundaryShape2D_r5fui")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries/Right"]
+position = Vector2(-958, 0)
+shape = SubResource("WorldBoundaryShape2D_jfipi")
+
+[connection signal="launch" from="Paddle" to="." method="_on_paddle_launch"]

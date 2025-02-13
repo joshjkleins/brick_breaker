@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://larpdofa3a0q"]
+
+[ext_resource type="Script" path="res://scripts/another_ball.gd" id="1_ahgg8"]
+[ext_resource type="Texture2D" uid="uid://ce6hy5q0jxdg5" path="res://sprites/ballagain.png" id="1_gbjrw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nv5vk"]
+radius = 24.0832
+
+[node name="AnotherBall" type="CharacterBody2D" groups=["Ball"]]
+collision_mask = 2
+collision_priority = 1000.0
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+platform_floor_layers = 4294967292
+platform_wall_layers = 3
+script = ExtResource("1_ahgg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_gbjrw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nv5vk")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://v4tqpdeucx5b"]
+
+[ext_resource type="Script" path="res://scripts/level_3.gd" id="1_3brtq"]
+[ext_resource type="PackedScene" uid="uid://cg3ffoyoofro1" path="res://scenes/paddle_again.tscn" id="1_aiprp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur4r7"]
+size = Vector2(1637, 81)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gbgdg"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qsgp2"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_25fl4"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8hmj3"]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_3brtq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="PaddleAgain" parent="." instance=ExtResource("1_aiprp")]
+position = Vector2(646, 1172)
+
+[node name="Death" type="Area2D" parent="."]
+position = Vector2(0, 1330)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+position = Vector2(606.5, -1.5)
+shape = SubResource("RectangleShape2D_ur4r7")
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries"]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D"]
+position = Vector2(0, 57)
+shape = SubResource("WorldBoundaryShape2D_gbgdg")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(587, 0)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_qsgp2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1270, 0)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D3"]
+position = Vector2(0, 57)
+shape = SubResource("WorldBoundaryShape2D_25fl4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(0, 1269)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D4"]
+position = Vector2(0, 57)
+shape = SubResource("WorldBoundaryShape2D_8hmj3")
+
+[connection signal="body_shape_entered" from="Death" to="." method="_on_death_body_shape_entered"]
