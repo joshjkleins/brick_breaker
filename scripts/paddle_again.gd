@@ -11,8 +11,6 @@ var currentSpeed = 0
 var currentDir
 var rng = RandomNumberGenerator.new()
 
-@onready var ball = $"../AnotherBall"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sizeOfPlayField = get_viewport_rect().size

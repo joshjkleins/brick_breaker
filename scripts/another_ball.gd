@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal ball_died
-
 var bounceIt = false
 
 # Called every physics frame

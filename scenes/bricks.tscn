@@ -1,12 +1,90 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6tlfx6txm6om"]
+[gd_scene load_steps=3 format=3 uid="uid://b6tlfx6txm6om"]
 
 [ext_resource type="PackedScene" uid="uid://ch0uonx8s6m5k" path="res://scenes/yellowBrick.tscn" id="1_j7isi"]
+[ext_resource type="PackedScene" uid="uid://dgx0jlvw2cpga" path="res://scenes/greenBrick.tscn" id="2_vjk6i"]
 
 [node name="Bricks" type="Node2D"]
 
 [node name="YellowBrick8" parent="." instance=ExtResource("1_j7isi")]
-position = Vector2(269, -211)
+position = Vector2(242, -208)
 
 [node name="YellowBrick9" parent="." instance=ExtResource("1_j7isi")]
-position = Vector2(398, -211)
-brickType = 1
+position = Vector2(376, -208)
+
+[node name="YellowBrick10" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(511, -208)
+
+[node name="YellowBrick12" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(779, -208)
+
+[node name="YellowBrick13" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(913, -208)
+
+[node name="YellowBrick14" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(1048, -208)
+
+[node name="YellowBrick11" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(645, -208)
+
+[node name="GreenBrick" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(242, -122)
+
+[node name="GreenBrick2" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(376, -122)
+
+[node name="GreenBrick3" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(511, -122)
+
+[node name="GreenBrick4" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(645, -122)
+
+[node name="GreenBrick5" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(779, -122)
+
+[node name="GreenBrick6" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(914, -122)
+
+[node name="GreenBrick7" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(1048, -122)
+
+[node name="YellowBrick15" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(242, -382)
+
+[node name="YellowBrick16" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(376, -382)
+
+[node name="YellowBrick17" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(511, -382)
+
+[node name="YellowBrick18" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(779, -382)
+
+[node name="YellowBrick19" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(913, -382)
+
+[node name="YellowBrick20" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(1048, -382)
+
+[node name="YellowBrick21" parent="." instance=ExtResource("1_j7isi")]
+position = Vector2(645, -382)
+
+[node name="GreenBrick8" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(242, -296)
+
+[node name="GreenBrick9" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(376, -296)
+
+[node name="GreenBrick10" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(511, -295)
+
+[node name="GreenBrick11" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(645, -296)
+
+[node name="GreenBrick12" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(779, -296)
+
+[node name="GreenBrick13" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(914, -296)
+
+[node name="GreenBrick14" parent="." instance=ExtResource("2_vjk6i")]
+position = Vector2(1048, -296)

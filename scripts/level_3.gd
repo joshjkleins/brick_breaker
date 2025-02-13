@@ -1,5 +1,5 @@
 extends Node2D
-@onready var another_ball = $AnotherBall
+
 @onready var paddle_again = $PaddleAgain
 
 var bricksScene = preload("res://scenes/bricks.tscn")
@@ -9,6 +9,12 @@ var remainingBalls
 var canLaunch = true
 
 var currentMainBall
+#TODO
+#add 2 more colors
+#add more powerups (refer to enum)
+#add sound effects and soundtrack (looped soundtrack, bounce noise, clear level noise)
+#add fading effect of bricks when they get hit (rather than just dissapear right away)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,9 +23,9 @@ func _ready():
 	spawnBall()
 
 
-func _process(delta):
+func _process(_delta):
 	if canLaunch and currentMainBall:
-		currentMainBall.position = paddle_again.position
+		currentMainBall.position = paddle_again.position + Vector2(0, -30)
 	if Input.is_action_just_pressed("launch") and canLaunch:
 		currentMainBall.velocity = Vector2(50, -1000)
 		canLaunch = false
@@ -46,6 +52,8 @@ func spawnBall():
 
 func spawnNewBricks():
 	var newBricks = bricksScene.instantiate()
+	for brick in newBricks.get_children():
+		print(brick.name)
 	call_deferred("add_child", newBricks)
 	for b in newBricks.get_children():
 		b.connect("destroyed", brickDestroyed)

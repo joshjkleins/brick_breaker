@@ -6,10 +6,11 @@ signal destroyed
 enum BRICK_TYPE { NORMAL, BALL, SHOOTER, PADDLEGROW, PADDLESHRINK, PADDLESLOW }
 
 @export var ballSprite: Texture2D
-
 @export var brickType: BRICK_TYPE
+var rng = RandomNumberGenerator.new()
 
 func _ready():
+	randomizeBrick()
 	setSprite()
 
 func getHit():
@@ -25,3 +26,9 @@ func setSprite():
 	match brickType:
 		BRICK_TYPE.BALL:
 			$AnimatableBody2D/Sprite2D.texture = ballSprite
+
+func randomizeBrick():
+	var roll = rng.randi_range(0, 100)
+	if roll >= 75:
+		brickType = BRICK_TYPE.BALL
+	
