@@ -20,6 +20,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_pressed("quit"):
+		get_tree().quit()
 	if Input.is_action_pressed("left"):
 		currentDir = "left"
 		currentSpeed += delta * 4 #accelaration
@@ -62,3 +64,12 @@ func _on_area_2d_body_shape_entered(_body_rid, body, _body_shape_index, _local_s
 		else: #middle of paddle hit
 			var xVelocity = body.velocity.x
 			body.velocity = Vector2(xVelocity, ballBounceVelocity)
+	if body.is_in_group("Drop"):
+		print(body.dropType)
+		match body.dropType:
+			Enums.BRICK_TYPE.PADDLEGROW:
+				var tween = get_tree().create_tween()
+				tween.tween_property(self, "scale", Vector2(1.25, 1), 0.5)
+				body.queue_free()
+				#update bounds logic, with new scale the large paddle clips out of bounds
+				#set time to return back to correct scale

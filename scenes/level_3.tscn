@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://v4tqpdeucx5b"]
+[gd_scene load_steps=9 format=3 uid="uid://v4tqpdeucx5b"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_3brtq"]
 [ext_resource type="PackedScene" uid="uid://cg3ffoyoofro1" path="res://scenes/paddle_again.tscn" id="1_aiprp"]
+[ext_resource type="PackedScene" uid="uid://bvynvtiruadbx" path="res://scenes/pickup.tscn" id="3_uf28s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur4r7"]
 size = Vector2(1637, 81)
@@ -64,5 +65,9 @@ collision_layer = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D4"]
 position = Vector2(0, 57)
 shape = SubResource("WorldBoundaryShape2D_8hmj3")
+
+[node name="Pickup" parent="." instance=ExtResource("3_uf28s")]
+position = Vector2(268, 1168)
+dropType = 2
 
 [connection signal="body_shape_entered" from="Death" to="." method="_on_death_body_shape_entered"]

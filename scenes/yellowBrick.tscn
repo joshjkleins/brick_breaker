@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch0uonx8s6m5k"]
+[gd_scene load_steps=8 format=3 uid="uid://ch0uonx8s6m5k"]
 
 [ext_resource type="Texture2D" uid="uid://cb0sivv3qo5q1" path="res://sprites/yellow-brick.png" id="1_m3oc1"]
 [ext_resource type="Script" path="res://scripts/brick.gd" id="1_scx5u"]
-[ext_resource type="Texture2D" uid="uid://cl35dnx4ms8se" path="res://sprites/pu-yellow-brick-extra-ball.png" id="2_k5vfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rty18"]
 size = Vector2(120, 70)
@@ -48,7 +47,6 @@ _data = {
 
 [node name="YellowBrick" type="Node2D"]
 script = ExtResource("1_scx5u")
-ballSprite = ExtResource("2_k5vfh")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../AnimatableBody2D")

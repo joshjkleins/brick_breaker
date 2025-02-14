@@ -3,10 +3,9 @@ extends Node2D
 var health = 1
 signal destroyed
 
-enum BRICK_TYPE { NORMAL, BALL, SHOOTER, PADDLEGROW, PADDLESHRINK, PADDLESLOW }
-
-@export var ballSprite: Texture2D
-@export var brickType: BRICK_TYPE
+@export var ballSprite: Texture2D = preload("res://sprites/pu-yellow-brick-extra-ball.png")
+@export var paddleGrowSprite: Texture2D = preload("res://sprites/brick-paddle-grow.png")
+@export var brickType: Enums.BRICK_TYPE
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -24,11 +23,16 @@ func _on_area_2d_body_shape_entered(_body_rid, body, _body_shape_index, _local_s
 
 func setSprite():
 	match brickType:
-		BRICK_TYPE.BALL:
+		Enums.BRICK_TYPE.BALL:
 			$AnimatableBody2D/Sprite2D.texture = ballSprite
+		Enums.BRICK_TYPE.PADDLEGROW:
+			$AnimatableBody2D/Sprite2D.texture = paddleGrowSprite
 
 func randomizeBrick():
 	var roll = rng.randi_range(0, 100)
-	if roll >= 75:
-		brickType = BRICK_TYPE.BALL
-	
+	if roll >= 90:
+		var rollType = rng.randi_range(1, 2)
+		if rollType == 1:
+			brickType = Enums.BRICK_TYPE.BALL
+		elif rollType == 2:
+			brickType = Enums.BRICK_TYPE.PADDLEGROW

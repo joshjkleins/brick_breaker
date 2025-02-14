@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgx0jlvw2cpga"]
+[gd_scene load_steps=8 format=3 uid="uid://dgx0jlvw2cpga"]
 
 [ext_resource type="Script" path="res://scripts/brick.gd" id="1_ur2sg"]
-[ext_resource type="Texture2D" uid="uid://cl35dnx4ms8se" path="res://sprites/pu-yellow-brick-extra-ball.png" id="2_5gq0g"]
 [ext_resource type="Texture2D" uid="uid://cb0sivv3qo5q1" path="res://sprites/yellow-brick.png" id="2_ftaq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rty18"]
@@ -49,7 +48,6 @@ _data = {
 [node name="GreenBrick" type="Node2D"]
 modulate = Color(0.101961, 1, 0.360784, 1)
 script = ExtResource("1_ur2sg")
-ballSprite = ExtResource("2_5gq0g")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../AnimatableBody2D")

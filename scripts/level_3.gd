@@ -4,6 +4,7 @@ extends Node2D
 
 var bricksScene = preload("res://scenes/bricks.tscn")
 var ballScene = preload("res://scenes/another_ball.tscn")
+var pickupScene = preload("res://scenes/pickup.tscn")
 
 var remainingBalls
 var canLaunch = true
@@ -52,8 +53,6 @@ func spawnBall():
 
 func spawnNewBricks():
 	var newBricks = bricksScene.instantiate()
-	for brick in newBricks.get_children():
-		print(brick.name)
 	call_deferred("add_child", newBricks)
 	for b in newBricks.get_children():
 		b.connect("destroyed", brickDestroyed)
@@ -67,6 +66,11 @@ func brickDestroyed(brick):
 				newBall.position = brick.position + Vector2(0, 500)
 				remainingBalls += 1
 				newBall.velocity = Vector2(50, -1000)
+			2: #paddle grow drop
+				var newPickup = pickupScene.instantiate()
+				newPickup.setType(brick.brickType)
+				call_deferred("add_child", newPickup)
+				newPickup.position = brick.position + Vector2(0, 500)
 	brick.call_deferred("free")
 	var currentBricks = get_node("Bricks")
 	if currentBricks:
